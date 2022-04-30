@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+	body{
+	background-image:url('https://previews.123rf.com/images/vlastas/vlastas1302/vlastas130200020/17895940-music-background-in-the-light-color.jpg');
+	background-size:cover;
+	background-position:center;
+	font-family:lucida calligraphy;
+	text-align:center;
+	font-weight:bold;
+	font-size:15px;
+	}
+    * {
+        box-sizing: border-box;
+    }
+    .error {
+
+        padding: 10px 10px;
+        margin: 10px 10px;
+        background-color: red;
+        color: white;
+        border-radius: 10px;
+    }
+     .container {
+        padding: 16px;
+        background-color:#ffc;
+    }
+
+     input[type=text],
+    input[type=email],
+    input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=email]:focus,
+    input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+ 
+
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+ 
+
+    .registerbtn {
+        background-color: fuchsia;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+		font-family:lucida calligraphy;
+    }
+
+    .registerbtn:hover {
+        opacity: 1;
+    }
+
+ 
+
+    a {
+        color: dodgerblue;
+    }
+
+ 
+
+    .signin {
+        background-color: #f1f1f1;
+        text-align: center;
+    }
+
+ 
+    </style>
+</head>
+
+<body>
+
+    <form action="reg.php" onsubmit="return check()" method="POST">
+        <div class="container">
+            <h1>Register</h1>
+            <p>To create an account</p>
+            <hr>
+            <label for="username"><b>User Name</b></label>
+            <input type="text" placeholder="Enter username" id="username" name="username" required>
+            <label for="email"><b>Email Address</b></label>
+            <input type="email" placeholder="Enter Email Address" id="emailID" name="email" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="password" name="password" required>
+            <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" id="confirm-password" placeholder="Repeat Password" name="psw-repeat" required>
+            <hr>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+            <input type="submit" class="registerbtn" value="Register" name="register-btn">
+        </div>
+
+        <div class="container signin">
+            <p>Already have an account? <a href="firstpg.html">Sign in</a>.</p>
+        </div>
+    </form>
+
+    <script>
+    function check() {
+
+        var username = document.getElementById("username").value.trim();
+        var email = document.getElementById("emailID").value.trim();
+        var password = document.getElementById("password").value.trim();
+        var confirmPassword = document.getElementById("confirm-password").value.trim();
+
+
+        if (password != confirmPassword) {
+            alert("Passwords does not match!");
+            return false;
+        } else if (username == "") {
+            alert("Enter a valid Username!");
+            return false;
+        } else if (email == "") {
+            alert("Enter a valid Email-ID!");
+            return false;
+        } else if (password == "" || (password.length() < 6)) {
+            alert("Password must be more than 6 characters!");
+            return false;
+        } else {
+            document.getElementById("username").value = username;
+            document.getElementById("emailID").value = email;
+            document.getElementById("password").value = password;
+            document.getElementById("confirm-password").value = confirmPassword;
+            return true;
+        }
+
+
+    }
+    </script>
+
+
+</body>
+
+</html>

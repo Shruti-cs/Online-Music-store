@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<body>
+
+
+
+    <h2><b><i> WELCOME TO SSS MUSIC STORE!!</b></i>
+    </h2>
+
+
+    <p><i>LET YOUR LIFE BE MUSICAL!!!!</i></p>
+    <div class="bg-img">
+        <form action="page.php" method="POST" onsubmit="return check()" class="container">
+            <h1>Login</h1>
+
+            <label for="username"><b>User Name</b></label>
+            <input type="text" placeholder="Enter username" id="username" name="username" required>
+            <label for="passsword"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="password" name="password" required>
+
+            <input class="btn" type="submit" name="login-btn" value="Login">
+            <center><a href="register.html"> Click to Create an account</a></center>
+        </form>
+    </div>
+
+
+    <script>
+    function check() {
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username.trim() == "") {
+            alert("Enter a valid Username!");
+            return false;
+        } else if (password.trim() == "") {
+            alert("Enter a valid Password!");
+            return false;
+        } else if (password.trim().length() < 6) {
+            alert("Password must be more than 6 characters!");
+            return false;
+        } else {
+            document.getElementById("username").value = username.trim();
+            document.getElementById("password").value = password.trim();
+            return true;
+        }
+    }
+    </script>
+
+</body>
+
+</html>
